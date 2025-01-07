@@ -1,4 +1,5 @@
 [versions]
+accompanistCoil = "1.4"
 androidGradlePlugin = "8.4.2"
 androidxCore = "1.13.1"
 androidxLifecycle = "2.8.2"
@@ -27,8 +28,10 @@ workRuntimeKtx = "2.9.0"
 ui = "1.7.0-alpha08"
 serialization = "1.6.3"
 navigationCompose = "2.8.0-beta02"
+coilComposeVersion = "2.5.0"
 
 [libraries]
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeVersion" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidxActivity" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
@@ -49,7 +52,6 @@ androidx-material-icons-extended = { module = "androidx.compose.material:materia
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-ui-text-google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
