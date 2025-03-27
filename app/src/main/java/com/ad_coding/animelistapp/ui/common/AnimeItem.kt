@@ -66,7 +66,7 @@ fun CharacterImage(imageUrl: String, modifier: Modifier = Modifier) {
         model = imageUrl,
         contentDescription = "Character image",
         modifier = modifier,
-        loading = { LoadingState() },
+        loading = { },
         contentScale = ContentScale.Crop
     )
 }

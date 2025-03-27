@@ -15,10 +15,10 @@ class TrendingAnimeRepositoryImpl @Inject constructor(
     override suspend fun getTrendingAnime(): List<AnimeData> {
         var result: List<AnimeData>? = null
         api.getTrendingAnime().onSuccess {
-           result = data.data
+            result = data.data
         }
             .onError {  }
             .onException {  }
-      return result!!
+        return result!!
     }
 }

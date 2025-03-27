@@ -13,34 +13,34 @@ data class AnimeData(
 )
 
 data class AttributesDto(
-    val createdAt: String,
-    val updatedAt: String,
-    val slug: String?,
-    val synopsis: String?,
-    val coverImageTopOffset: Int,
-    val titles: TitlesDto,
-    val canonicalTitle: String?,
-    val abbreviatedTitles: List<String>,
-    val averageRating: String?,
-    val ratingFrequencies: Map<String,String>,
-    val userCount: Int?,
-    val favoritesCount: Int?,
-    val startDate: String?,
-    val endDate: String?,
-    val popularityRank: Int?,
-    val ratingRank: Int?,
-    val ageRating: String?,
-    val ageRatingGuide: String?,
-    val subtype: String,
-    val status: String,
-    val tba: String?,
-    val posterImage: PosterImageDto,
-    val coverImage: CoverImageDto,
-    val episodeCount: Int?,
-    val episodeLength: Int?,
-    val youtubeVideoId: String?,
-    val showType: String?,
-    val nsfw: Boolean
+    val createdAt: String? = null,
+    val updatedAt: String? = null,
+    val slug: String? = null,
+    val synopsis: String? = null,
+    val coverImageTopOffset: Int? = null,
+    val titles: TitlesDto? = null,
+    val canonicalTitle: String? = null,
+    val abbreviatedTitles: List<String>? = null,
+    val averageRating: String? = null,
+    val ratingFrequencies: Map<String,String>? = null,
+    val userCount: Int? = null,
+    val favoritesCount: Int? = null,
+    val startDate: String? = null,
+    val endDate: String? = null,
+    val popularityRank: Int? = null,
+    val ratingRank: Int? = null,
+    val ageRating: String? = null,
+    val ageRatingGuide: String? = null,
+    val subtype: String? = null,
+    val status: String? = null,
+    val tba: String? = null,
+    val posterImage: PosterImageDto? = null,
+    val coverImage: CoverImageDto? = null,
+    val episodeCount: Int? = null,
+    val episodeLength: Int? = null,
+    val youtubeVideoId: String? = null,
+    val showType: String? = null,
+    val nsfw: Boolean? = null
 )
 
 data class TitlesDto(
@@ -74,26 +74,26 @@ data class SizeDto(
 )
 
 data class CoverImageDto(
-    val tiny: String,
-    val small: String,
-    val large: String,
-    val original: String,
-    val meta: MetaDto?
+    val tiny: String ? = null,
+    val small: String ? = null,
+    val large: String ? = null,
+    val original: String ? = null,
+    val meta: MetaDto ? = null
 )
 
 data class RelationshipsDto(
-    val genres: RelationDto,
-    val categories: RelationDto,
-    val castings: RelationDto,
-    val installments: RelationDto,
-    val mappings: RelationDto,
-    val reviews: RelationDto,
-    val mediaRelationships: RelationDto,
-    val episodes: RelationDto,
-    val streamingLinks: RelationDto,
-    val animeProductions: RelationDto,
-    val animeCharacters: RelationDto,
-    val animeStaff: RelationDto
+    val genres: RelationDto ? = null,
+    val categories: RelationDto ? = null,
+    val castings: RelationDto ? = null,
+    val installments: RelationDto ? = null,
+    val mappings: RelationDto ? = null,
+    val reviews: RelationDto ? = null,
+    val mediaRelationships: RelationDto ? = null,
+    val episodes: RelationDto ? = null,
+    val streamingLinks: RelationDto ? = null,
+    val animeProductions: RelationDto ? = null,
+    val animeCharacters: RelationDto ? = null,
+    val animeStaff: RelationDto ? = null
 )
 
 data class RelationDto(

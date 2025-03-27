@@ -106,4 +106,6 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.androidx.hilt.compiler)
+    implementation(libs.coil.compose)
+    kapt(libs.androidx.hilt.compiler)
 }

@@ -39,20 +39,4 @@ object AppModule {
     @Provides
     fun provideTrendingAnimeRepository(api: KitsuApi): TrendingAnimeRepository =
         TrendingAnimeRepositoryImpl(api)
-
-
-//    @Singleton
-//    @Provides
-//    fun provideTodoApi(moshi: Moshi): TodoApi =
-//        Retrofit.Builder()
-//            .baseUrl(TodoApi.BASE_URL)
-//            .addConverterFactory(MoshiConverterFactory.create(moshi))
-//            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
-//            .build()
-//            .create(TodoApi::class.java)
-//
-//    @Singleton
-//    @Provides
-//    fun providTodosRepository(api: TodoApi): TodosRepository = TodosRepositoryImp(api)
-
 }
