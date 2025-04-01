@@ -4,12 +4,21 @@ data class AnimeResponse(
     val data: List<AnimeData>
 )
 
+data class AnimeTile(
+    var isClicked: Boolean = false,
+    var isFavorite: Boolean = false,
+    var isLiked: Boolean = false,
+    var isSaved: Boolean = false,
+    var isWatched: Boolean = false,
+)
+
 data class AnimeData(
     val id: String,
     val type: String,
     val links: LinksDto,
     val attributes: AttributesDto,
-    val relationships: RelationshipsDto
+    val relationships: RelationshipsDto,
+    val payload: AnimeTile = AnimeTile()
 )
 
 data class AttributesDto(

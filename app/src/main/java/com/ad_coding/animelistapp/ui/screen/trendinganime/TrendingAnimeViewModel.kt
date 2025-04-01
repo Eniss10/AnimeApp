@@ -17,13 +17,48 @@ class TrendingAnimeViewModel @Inject constructor(
     val repository: TrendingAnimeRepository,
     private val logger: AppLogger
 ): ViewModel() {
-    var _animes = MutableStateFlow<List<AnimeData>>(emptyList())
+    private var _animes = MutableStateFlow<List<AnimeData>>(emptyList())
     val animes = _animes.asStateFlow()
+    private var _clickedItem = MutableStateFlow<Boolean>(false)
+    private var animeList : List<AnimeData> ? = null
 
     init {
+        observerLastClickedAnimeId()
+
         viewModelScope.launch {
-            _animes.update { repository.getTrendingAnime() }
+            animeList = repository.getTrendingAnime()
+            _animes.update { animeList!! }
             logger.log("[viewModelScope]: anime list fetched")
         }
+
+    }
+
+    private fun observerLastClickedAnimeId() {
+        viewModelScope.launch {
+            _clickedItem.collect {
+                if (_clickedItem.value) {
+                    handleAnimeChange()
+                    _clickedItem.update { false }
+                }
+            }
+        }
+    }
+
+    private fun handleAnimeChange() {
+        viewModelScope.launch {
+            _animes.update { animeList!! }
+            logger.log("[viewModelScope]: anime list updated")
+        }
+    }
+
+    fun updateLastClickedAnimeId(animeId: String) {
+       animeList =  animeList?.map { animeData ->
+            if(animeData.id == animeId) {
+                animeData.copy(payload = animeData.payload.copy(isFavorite = !animeData.payload.isFavorite))
+            } else {
+                animeData
+            }
+        }
+        _clickedItem.update { true }
     }
 }

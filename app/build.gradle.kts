@@ -108,4 +108,6 @@ dependencies {
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.coil.compose)
     kapt(libs.androidx.hilt.compiler)
+    implementation ("androidx.fragment:fragment-ktx:1.8.6")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
 }
