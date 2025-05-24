@@ -1,5 +1,6 @@
 package com.ad_coding.animelistapp.ui.common
 
+import AnimeData
 import AnimeTile
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -56,10 +57,9 @@ import com.ad_coding.animelistapp.utils.ImageType
 fun AsyncImage(
     modifier: Modifier,
     imageUrl: String,
-    clickListener: () -> Unit,
-    payload: AnimeTile? = null,
     imageType: ImageType? = null,
-    itemClickListener: () -> Unit
+    itemClickListener: (AnimeData) -> Unit,
+    data: AnimeData
 ) {
     var imageLoaded by remember { mutableStateOf(false) }
 
@@ -70,7 +70,7 @@ fun AsyncImage(
             modifier = Modifier
                 .fillMaxSize()
                 .clickable {
-                    itemClickListener.invoke()
+                    itemClickListener.invoke(data)
                 },
             loading = { Box(modifier = modifier.shimmerEffect()) },
             onSuccess = { imageLoaded = true},

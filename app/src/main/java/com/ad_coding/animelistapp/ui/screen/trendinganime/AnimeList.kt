@@ -35,7 +35,7 @@ import com.ad_coding.animelistapp.utils.getPosterUrl
 fun AnimeList(
     animes: List<AnimeData>,
     trendingAnimeViewModel: TrendingAnimeViewModel,
-    itemClickListener: () -> Unit
+    itemClickListener: (AnimeData) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(Constants.VERTICAL_GRID_COLUMNS),
@@ -78,7 +78,7 @@ private fun ItemImage(
     data: AnimeData,
     imageType: ImageType,
     trendingAnimeViewModel: TrendingAnimeViewModel,
-    itemClickListener: () -> Unit
+    itemClickListener: (AnimeData) -> Unit
 ) {
     val onClick = {
         trendingAnimeViewModel.updateLastClickedAnimeId(data.id)
@@ -101,10 +101,9 @@ private fun ItemImage(
         AsyncImage(
             modifier = Modifier.fillMaxSize(),
             imageUrl = imageUrl!!,
-            clickListener = onClick,
-            payload = data.payload,
             imageType = imageType,
-            itemClickListener= itemClickListener
+            itemClickListener= itemClickListener,
+            data = data
         )
     }
 }
