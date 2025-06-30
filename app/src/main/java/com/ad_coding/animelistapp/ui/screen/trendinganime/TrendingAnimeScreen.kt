@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ad_coding.animelistapp.ui.screen.animeDetails.AnimeDetailsViewModel
+import com.ad_coding.animelistapp.ui.screen.trendinganime.overlay.DialogOverlay
 
 @Composable
 fun TrendingAnimeScreen(
@@ -57,48 +58,6 @@ fun TrendingAnimeScreen(
             }
         }
     } else {
-       // Todo: implement an alternative
     }
 }
 
-@SuppressLint("StateFlowValueCalledInComposition")
-@Composable
-fun DialogOverlay(
-    onDismiss: () -> Unit,
-    animeDetailsFragmentViewModel: AnimeDetailsViewModel) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black.copy(alpha = 0.5f))
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = onDismiss
-            )
-    ) {
-        Column( // This Column centers the white Box in the screen
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Box( // This is your white dialog box
-                modifier = Modifier
-                    .height(400.dp)
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .background(Color.White)
-            ) {
-                // No inner Column needed
-                Text(
-                    text = animeDetailsFragmentViewModel.actualAnime.value?.attributes?.titles?.en.toString(),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp),
-                    textAlign = TextAlign.Center,
-                    fontSize = 40.sp,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
-    }
-}
